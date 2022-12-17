@@ -1,8 +1,9 @@
 import Card from "./Card";
 import Button from "./Button";
+import { Fragment } from "react";
 const ErrorModal = ({ error, onConfirm }) => {
   return (
-    <div>
+    <Fragment>
       <div className="backdrop" onClick={onConfirm}></div>
       <Card className={"modalCard"}>
         <header className={"modalHeader"}>
@@ -19,7 +20,7 @@ const ErrorModal = ({ error, onConfirm }) => {
           </footer>
         </section>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 

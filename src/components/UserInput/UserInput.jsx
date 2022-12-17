@@ -1,7 +1,7 @@
 import Card from "../UI/Card";
 import UserForm from "./UserForm";
 import ErrorModal from "../UI/ErrorModal";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 
 const UserInput = ({ onAdd }) => {
   const [error, setError] = useState();
@@ -14,13 +14,13 @@ const UserInput = ({ onAdd }) => {
   };
 
   return (
-    <div>
+    <Fragment>
       {error && <ErrorModal error={error} onConfirm={disableErrorHandler} />}
 
       <Card>
         <UserForm onAdd={onAdd} onError={showErrorHandler} />
       </Card>
-    </div>
+    </Fragment>
   );
 };
 
