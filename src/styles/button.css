@@ -1,0 +1,11 @@
+.buttonComponent {
+  width: 25%;
+  padding: 10px 4px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin-top: 2%;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}

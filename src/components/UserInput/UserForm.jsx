@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-const UserForm = ({ onAdd }) => {
+import Button from "../UI/Button";
+const UserForm = ({ onAdd, onError }) => {
   const [userInput, setUserInput] = useState({
     name: "",
     age: "",
@@ -22,6 +22,23 @@ const UserForm = ({ onAdd }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    if (userInput.name.trim() === "" || userInput.age.trim() === "") {
+      onError({
+        title: "Some error occured!",
+        message: "Values cannot be Empty!!",
+      });
+      return;
+    }
+
+    if (+userInput.age < 1) {
+      onError({
+        title: "Some error occured!",
+        message: "Please enter a valid age!",
+      });
+      return;
+    }
+
     onAdd(userInput);
     setUserInput({
       name: "",
@@ -38,7 +55,6 @@ const UserForm = ({ onAdd }) => {
           name=""
           id=""
           placeholder="Enter username"
-          required
           value={userInput.name}
           onChange={changeNameHandler}
         />
@@ -51,14 +67,11 @@ const UserForm = ({ onAdd }) => {
           name=""
           id=""
           placeholder="Enter Age"
-          required
-          min={10}
           value={userInput.age}
           onChange={changeAgeHandler}
         />
       </div>
-
-      <button type="submit">Add User</button>
+      <Button type="submit">Add User</Button>
     </form>
   );
 };
