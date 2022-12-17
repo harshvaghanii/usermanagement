@@ -25,7 +25,7 @@ const UserForm = ({ onAdd, onError }) => {
 
     if (userInput.name.trim() === "" || userInput.age.trim() === "") {
       onError({
-        title: "Some error occured!",
+        title: "OOPS :(",
         message: "Values cannot be Empty!!",
       });
       return;
@@ -33,7 +33,7 @@ const UserForm = ({ onAdd, onError }) => {
 
     if (+userInput.age < 1) {
       onError({
-        title: "Some error occured!",
+        title: "OOPS :(",
         message: "Please enter a valid age!",
       });
       return;
